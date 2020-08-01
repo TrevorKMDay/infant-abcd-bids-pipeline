@@ -333,7 +333,7 @@ def generate_parser(parser=None):
     runopts.add_argument(
         '--stage','--stages', dest='stages',
         metavar='STAGE',
-        help='specify a subset of stages to run.'
+        help='specify a subset of stages to run. '
              'If a single stage name is given, the pipeline with be '
              'started at that stage. If a string with a ":" is given, '
              'a stage name before the ":" will tell run.py where to '
@@ -345,12 +345,12 @@ def generate_parser(parser=None):
              'or with: \n'
              '   --stage=":PreFreeSurfer"  \n'
              'will cause only PreFreeSurfer to be run. '
-             '(This can be useful to do optional processing between'
-             'PreFreeSurfer and FreeSurfer.)'
+             '(This can be useful to do optional processing between '
+             'PreFreeSurfer and FreeSurfer.) '
              'Calling run.py with: \n'
              '   --stages="FreeSurfer:FMRISurface"  \n'
-             'will start with stage FreeSurfer and stop after'
-             'FMRISurface (before DCANBOLDProcessing).'
+             'will start with stage FreeSurfer and stop after '
+             'FMRISurface (before DCANBOLDProcessing). '
              'Default start is PreFreeSurfer and default '
              'stop is ExecutiveSummary. The specifications: \n'
              '   --stages="PreFreeSurfer:ExecutiveSummary"  \n'
@@ -546,13 +546,13 @@ def interface(bids_dir, output_dir, subject_list=None, session_list=None,
 
             if start_stage:
                 assert start_stage in names, \
-                        '"%s" is unknown, check class name and case for given stage' \
+                        'start stage "%s" is unknown, check class name and case for given stage' \
                         % start_stage
                 start_idx = names.index(start_stage)
 
             if end_stage is not None:
                 assert end_stage in names, \
-                        '"%s" is unknown, check class name and case for given stage' \
+                        'end stage "%s" is unknown, check class name and case for given stage' \
                         % end_stage
                 end_idx = names.index(end_stage)
                 end_idx += 1 # Include end stage.
